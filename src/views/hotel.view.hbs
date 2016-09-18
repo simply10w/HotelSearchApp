@@ -1,0 +1,19 @@
+{{#each hotels}}
+  <div class="col-xs-12">
+	  <div class="panel panel-default">
+	  	<div class="panel-body">
+			  <div class="col-sm-4">
+			  	<img src="{{getImage images}}" alt="{{name}}">
+			  </div><!-- col-sm-4 -->
+			  <div class="col-sm-8">
+				  <p>{{name}}</p>
+				  <p>{{country}}</p>
+				  <p>{{price}}</p>
+				  <p>{{rating}} | {{stars}}</p>
+				  <p><a href="javascript:;" data-hotel-id="{{id}}">{{id}}</a></p>
+				  <p>{{description}}</p>
+			  </div><!-- col-sm-8 -->
+			</div><!-- panel-body -->
+	  </div><!-- panel -->
+  </div><!-- col-xs-12 -->
+{{/each}}
