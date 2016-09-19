@@ -1,19 +1,36 @@
 {{#each hotels}}
-  <div class="col-xs-12">
-	  <div class="panel panel-default">
-	  	<div class="panel-body">
-			  <div class="col-sm-4">
-			  	<img src="{{getImage images}}" alt="{{name}}">
-			  </div><!-- col-sm-4 -->
-			  <div class="col-sm-8">
-				  <p>{{name}}</p>
-				  <p>{{country}}</p>
-				  <p>{{price}}</p>
-				  <p>{{rating}} | {{stars}}</p>
-				  <p><a href="javascript:;" data-hotel-id="{{id}}">{{id}}</a></p>
-				  <p>{{description}}</p>
-			  </div><!-- col-sm-8 -->
-			</div><!-- panel-body -->
-	  </div><!-- panel -->
-  </div><!-- col-xs-12 -->
+<div class="col-xs-12 hotel">
+	<div class="hotel__main">
+		<div class="hotel__img" style="background-image: url({{getImage images}})">
+		</div><!-- hotel__img -->
+		<div class="col-xs-8 col-xs-offset-4">
+			<div class="hotel__info">
+				<div class="hotel__header">
+					<div class="row">
+						<div class="col-xs-8">
+							<h3 class="hotel__name">{{name}}</h3>
+							<small class="hotel__location">{{city}} - {{country}}</small>
+						</div><!-- col-xs-6 -->
+						<div class="col-xs-4">
+							<p class="hotel__stars pull-right">{{showStars stars}}</p>				  	
+						</div><!-- col-xs-6 -->
+					</div><!-- row -->
+				</div><!-- hotel__header -->
+				<div class="hotel__body">
+					<p class="hotel__description">{{description}}</p>
+				</div><!-- hotel__body -->
+				<div class="hotel__footer clearfix">
+					<a href="javascript:;" class="btn btn-primary hotel__btn show-review" data-hotel-id="{{id}}">Show reviews</a>
+					<div class="pull-right">
+						<p class="hotel__price">{{price}} &euro;</p>
+						<small class="hotel__availability">{{formatDate date_start}} - {{formatDate date_end}}</small>
+					</div>
+				</div><!-- hotel__footer -->
+			</div><!-- hotel__info -->
+		</div><!-- col-xs-8 -->
+	</div><!-- hotel__main -->
+	<div class="hotel__reviews">
+		
+	</div><!-- hotel__reviews -->	
+</div><!-- col-xs-12 -->
 {{/each}}

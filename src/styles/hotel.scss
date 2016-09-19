@@ -1,0 +1,80 @@
+$font-hotel: 14px;
+$font-hotel--sm: 11px;
+$font-hotel--lg: 30px;
+
+.hotel {
+	font-size: $font-hotel;
+	border: 1px solid #444;
+	border-radius: 5px;
+	margin-bottom: 40px;
+	
+	&__main {
+		position: relative;
+		max-height: 480px;
+		min-height: 300px;
+		padding-bottom: 20px;
+	}
+
+	&__name {
+		margin: 0;
+		font-weight: 700;
+		line-height: 1;
+	}
+
+	&__location {
+		font-size: $font-hotel--sm;
+	}
+
+	&__img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 33%;
+		max-width: 640px;
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+
+	&__info {
+		padding: 20px 0;
+	}
+
+	&__description {
+		margin: 10px -10px 0;
+		padding: 10px;
+		background-color: #eee;
+		border-radius: 5px;
+		max-height: 300px;
+		overflow-y: auto;
+	}
+	
+	&__footer {
+		margin: 20px 0 0;
+	}
+
+	&__btn {
+		float: left;
+	}
+
+	&__price,
+	&__availability {
+		float: right;		
+	}
+
+	&__price {
+		font-size: $font-hotel--lg;
+		letter-spacing: 1px;
+		line-height: 1;
+		margin: 0;
+	}
+
+	&__availability {
+		clear: right;
+	}
+
+	&__stars {
+		width: 80px;
+	}
+}
+	

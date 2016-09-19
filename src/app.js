@@ -20,21 +20,17 @@ $(document).ready(() => {
 });
 
 //APP
-var getHotels = require('./app/get_hotels');
-var renderHotels = require('./app/render_hotels');
+const getHotels = require('./app/get_hotels');
+const renderHotels = require('./app/render_hotels');
 
-
-var setHtml = _.curry(function(selector, content) {
-	$(selector).html(content);
-});
-
+var setHtml = _.curry(($, selector, content) => $(selector).html(content))($);
 var setHotelResults = setHtml('#hotelResults');
-
 var showHotels = _.compose(setHotelResults, renderHotels);
 
 //Bind click event for loading hotels
 $('#loadHotels').on('click', () => {
 	var xhr = getHotels((hotels) => {	
+		console.log(hotels);
 		$('#hotelResults').fadeOut(350, function() {
 			showHotels(hotels);
 			$(this).fadeIn(350);
