@@ -1,9 +1,9 @@
-const _ = require('ramda');
 const $ = require('jquery');
 
 const api = require('./app.data');
 const getApiCall = require('./api_util.js');
 
+// AjaxInterface => apiUrl => query => callback function
 let $get = getApiCall($);
 
 let getAllHotels = $get(api.getHotels);

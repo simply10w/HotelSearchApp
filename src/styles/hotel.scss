@@ -11,26 +11,28 @@ $grey-color: #ecf0f1;
 $purple-color: #8e44ad;
 
 .hotel {
-	font-size: $font-hotel;
-	color: $primary-color;
-	border: 1px solid $border-color;
-	border-radius: 5px;
+	overflow: hidden;
 	margin-bottom: 40px;
 	padding-left: 0;
 	box-shadow: 1px 5px 20px 0px #999;
+	font-size: $font-hotel;
+	color: $primary-color;
 	background-color: $grey-color;
-	overflow: hidden;
 	transition: border-color 0.3s ease;
+	border: 1px solid $border-color;
+	border-radius: 5px;
 
 	&:hover {
 		border-color: $yellow-color;
-
-		& .hotel__stars,
-		& .hotel__price {
-			color: $yellow-color !important;
+		
+		.hotel__name,
+		.hotel__stars,
+		.hotel__price {
+			color: $yellow-color;
 		}
 	}
-
+	
+	&__name,
 	&__stars,
 	&__price {
 		transition: color 0.3s ease;
