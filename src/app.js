@@ -2,7 +2,6 @@
 require('file?name=[name].[ext]!./img/loader.gif');
 
 //Get stylesheets
-require('./styles/bootstrap.css');
 require('./styles/app.scss');
 require('style!css!../node_modules/toastr/build/toastr.css');
 
