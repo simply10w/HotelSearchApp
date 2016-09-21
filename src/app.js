@@ -21,7 +21,9 @@ const $loader = $('.preloader');
 const appConfig = {
 	loadHotels: '#loadHotels',
 	hotelsContainer: '#hotelResults',
-	loadReviews: '.show-review'
+	loadReviews: '.show-review',
+	hotelClass: '.hotel',
+	reviewsContainer: '#hotelReviews'
 };
 
 // Hide splash screen loader
@@ -38,6 +40,9 @@ const hotelReviews = require('./app/get_reviews');
 //JSON => String
 const renderHotels = require('./app/render_hotels');
 
+//JSON => String
+const renderReviews = require('./app/render_reviews');
+
 // DOMInterface => Selector => DOMContent => DOMElement
 var setHtml = _.curry(($, selector, content) => $(selector).html(content))($);
 
@@ -51,6 +56,7 @@ var showHotels = _.compose(setHotelResults, renderHotels);
 //Bind click event for loading hotels
 //using regular functions as callbacks instead of arrow functions
 //to have "this" point to the jquery object which triggered the events
+
 $(appConfig.loadHotels).on('click', () => {
 	//show loader
 	$loader.fadeIn(200);
@@ -76,17 +82,52 @@ $(appConfig.loadHotels).on('click', () => {
 	});
 });
 
+
 //bind click event to any .show-review class inside #hotelResults
 //using callback function as a regular function instead arrow functions
 //to have "this" point to the jquery object which triggered the event
 $(appConfig.hotelsContainer).on('click', appConfig.loadReviews, function(){
-    let hotelId = $(this).data('hotel-id');
-    let queryReview = `?hotel_id=${hotelId}`;
-    let getHotelReview = hotelReviews(queryReview);
-    
-    getHotelReview((data) => {
-    	console.log(data);
-    });
+	let $btn = $(this);
+	let $hotel = $btn.closest(appConfig.hotelClass);
+	let reviewsOpen = $btn.data('reviews-open');
+	
+	//if reviews are not shown
+	//make http request and show them
+	if(!reviewsOpen) {
+	    $btn
+	    	.data('reviews-open', true)
+	    	.text($btn.data('open-text'));
+
+	    let getHotelReview = hotelReviews('?hotel_id=' + $btn.data('hotel-id'));
+	    
+	    let xhr = getHotelReview((data) => {
+	    	$hotel
+	    		.find(appConfig.reviewsContainer)
+	    		.show()
+	    		.html(renderReviews(data));
+	    });
+
+	    xhr.fail((xhr, textStatus, error) => {	
+	    	$hotel
+	    		.find(appConfig.reviewsContainer)
+	    		.hide()
+	    		.empty();
+	    	toastr.error( ( xhr.responseJSON.error || error ), 'Error!')
+			});
+	}
+
+	//if reviews are already shown
+	//hide the reviews container
+	else {
+	    $btn
+	    	.data('reviews-open', false)
+	    	.text($btn.data('closed-text'));
+	    
+	    $hotel
+	    	.find(appConfig.reviewsContainer)
+	    	.empty()
+	    	.hide();
+	}
 
 });
 

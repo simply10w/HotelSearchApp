@@ -1,0 +1,39 @@
+$grey-color: #aaa;
+$white-color: #eee;
+
+.review {
+	//clearfix
+	overflow: hidden;
+	width: 90%;
+	padding: 0 15px 35px 0;
+	margin: 0 auto 35px;
+	border-bottom: 1px solid $grey-color;
+	
+	&:last-of-type {
+		margin-bottom: 0;
+		border-bottom: none;
+	}
+
+	&__status {
+		float: left;
+		position: relative;
+		width: 150px;
+	}
+
+	&__user {
+		margin-left: 150px;
+	}
+}
+
+
+
+.sign {
+	display: block;
+	width: 40px;
+	height: 40px;
+	margin: 20px auto 0;
+	border-radius: 50%;
+	background-color: $white-color;
+	line-height: 40px;
+	text-align: center;
+}

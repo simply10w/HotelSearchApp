@@ -1,0 +1,19 @@
+{{#if reviews}}
+	{{#each reviews}} 
+		<div class="review">
+			<div class="review__status">
+				{{#if positive}}
+					<span class="sign">&#x2795;</span>
+				{{else}}
+					<span class="sign">&#x2796;</span>
+				{{/if}}
+			</div><!-- .review__status -->
+			<div class="review__user">
+				<h4>{{name}}</h4>
+				<p>{{comment}}</p>
+			</div><!-- .review__user -->
+		</div><!-- .review -->
+	{{/each}}
+{{else}}
+	<h3 class="alert alert-info">There are no reviews for this hotel.</h3>
+{{/if}}

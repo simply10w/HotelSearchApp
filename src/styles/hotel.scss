@@ -13,7 +13,7 @@ $purple-color: #8e44ad;
 .hotel {
 	overflow: hidden;
 	margin-bottom: 40px;
-	padding-left: 0;
+	padding: 0;
 	box-shadow: 1px 5px 20px 0px #999;
 	font-size: $font-hotel;
 	color: $primary-color;
@@ -111,6 +111,16 @@ $purple-color: #8e44ad;
 	&__stars {
 		color: $purple-color;
 		width: 80px;
+	}
+
+	&__reviews {
+		display: none;
+		position: relative;
+		padding: 35px 0;
+		max-height: 400px;
+		min-height: 200px;
+		overflow-y: auto;
+		background-color: darken($grey-color, 10%);
 	}
 }
 	

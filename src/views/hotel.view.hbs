@@ -1,3 +1,4 @@
+
 {{#each hotels}}
 <div class="col-xs-12 hotel">
 	<div class="hotel__main">
@@ -20,7 +21,7 @@
 					<p class="hotel__description">{{description}}</p>
 				</div><!-- hotel__body -->
 				<div class="hotel__footer clearfix">
-					<a href="javascript:;" class="btn btn-primary hotel__btn show-review" data-hotel-id="{{id}}">Show reviews</a>
+					<a href="javascript:;" class="btn btn-primary hotel__btn show-review" data-open-text="Hide reviews" data-closed-text="Show reviews" data-hotel-id="{{id}}">Show reviews</a>
 					<div class="pull-right">
 						<p class="hotel__price">{{price}} &euro;</p>
 						<small class="hotel__availability">{{formatDate date_start}} - {{formatDate date_end}}</small>
@@ -29,7 +30,7 @@
 			</div><!-- hotel__info -->
 		</div><!-- col-xs-8 -->
 	</div><!-- hotel__main -->
-	<div class="hotel__reviews">
+	<div class="hotel__reviews" id="hotelReviews">
 		
 	</div><!-- hotel__reviews -->	
 </div><!-- col-xs-12 -->
