@@ -7,7 +7,7 @@
     "dev": "gulp clean & webpack",
     "dev:serve": "gulp clean & webpack --watch & webpack-dev-server --inline --hot",
     "dist": "gulp clean & webpack",
-    "dist:serve": "gulp clean & webpack & cd public & http-server -p 3000"
+    "dist:serve": "gulp clean & webpack & http-server -p 3000"
   },
   "author": "",
   "license": "ISC",
@@ -37,7 +37,6 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "fs": "0.0.1-security",
     "handlebars": "^4.0.5",
     "jquery": "^3.1.0",
     "ramda": "^0.22.1",

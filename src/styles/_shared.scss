@@ -1,0 +1,31 @@
+$alpha:   1280px;
+$beta:    960px;
+$gamma:   768px;
+$delta:   480px;
+$epsilon: 360px; 
+
+// media queries
+// breakpoints are 
+@mixin breakpoint($point) {
+  
+  @if $point == alpha {
+    @media ( max-width: $alpha )  { @content; }
+  }
+
+  @else if $point == beta {
+    @media ( max-width: $beta )   { @content; }
+  }
+
+  @else if $point == gamma {
+    @media ( max-width: $gamma )   { @content; }
+  }
+
+  @else if $point == delta {
+    @media ( max-width: $delta )   { @content; }
+  }
+
+  @else if $point == epsilon {
+    @media ( max-width: $epsilon )   { @content; }
+  }
+
+}

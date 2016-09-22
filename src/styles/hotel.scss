@@ -1,3 +1,5 @@
+@import 'shared';
+
 $font-hotel: 14px;
 $font-hotel--sm: 11px;
 $font-hotel--lg: 30px;
@@ -9,6 +11,13 @@ $yellow-color: #f39c12;
 $blue-color: #2980b9;
 $grey-color: #ecf0f1;
 $purple-color: #8e44ad;
+
+#hotelResults {
+	@include breakpoint(gamma) {
+		max-width: 450px;
+		margin: 0 auto;
+	}
+}
 
 .hotel {
 	overflow: hidden;
@@ -43,6 +52,10 @@ $purple-color: #8e44ad;
 		max-height: 480px;
 		min-height: 300px;
 		padding-bottom: 20px;
+
+		@include breakpoint(gamma) {
+			max-height: none;
+		}
 	}
 
 	&__name {
@@ -66,6 +79,20 @@ $purple-color: #8e44ad;
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-color: $blue-color;
+	
+
+		@include breakpoint(gamma) {
+			position: relative;
+			width: 100%;
+			max-width: none;
+			background-size: cover;
+
+			&:after {
+				content: '';
+				display: block;
+				padding-top: 66.666%;
+			}
+		}
 	}
 
 	&__info {

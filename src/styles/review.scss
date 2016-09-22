@@ -1,3 +1,5 @@
+@import 'shared';
+
 $grey-color: #aaa;
 $white-color: #eee;
 
@@ -18,10 +20,18 @@ $white-color: #eee;
 		float: left;
 		position: relative;
 		width: 150px;
+
+		@include breakpoint(gamma) {
+			width: 75px;
+		} 
 	}
 
 	&__user {
 		margin-left: 150px;
+		
+		@include breakpoint(gamma) {
+			margin-left: 75px;
+		}
 	}
 }
 

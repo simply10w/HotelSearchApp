@@ -28,6 +28,9 @@ var config = {
       { test: /\.html$/, loader: 'html-loader', exclude: /node_modules/ }
     ]
   },
+  node: {
+    fs: "empty"
+  },
   postcss: function() {
     return [precss, autoprefixer];
   },
