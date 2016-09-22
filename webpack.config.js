@@ -2,11 +2,13 @@ const webpack = require('webpack');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
 const precss = require('precss');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
-module.exports = {
+const ENV =  process.env.npm_lifecycle_event;
+const isProd = ( ENV === 'dist' || ENV === 'dist:serve' );
+
+var config = {
   entry: "./src/app.js",
   output: {
     path: __dirname + '/public',
@@ -14,7 +16,13 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.js$/, loader: "babel", exclude: /node_modules/ },            
+      { test: /\.js$/, 
+        loader: "babel", 
+        query: {
+          presets: ['es2015']
+        },
+        exclude: /node_modules/ 
+      },            
       { test: /\.scss$/, loader: "style-loader!css-loader!postcss-loader!sass-loader", exclude: /node_modules/ },            
       { test: /\.css$/, loader: "style-loader!css-loader!postcss-loader", exclude: /node_modules/ },
       { test: /\.html$/, loader: 'html-loader', exclude: /node_modules/ }
@@ -37,3 +45,12 @@ module.exports = {
     })
   ]
 };
+
+if(isProd) {
+  config.plugins.push(
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin()
+  );
+}
+
+module.exports = config;

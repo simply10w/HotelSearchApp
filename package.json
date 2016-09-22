@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp clean & webpack",
-    "dev": "gulp clean & webpack --watch & webpack-dev-server --inline --hot"
+    "dev": "gulp clean & webpack",
+    "dev:serve": "gulp clean & webpack --watch & webpack-dev-server --inline --hot",
+    "dist": "gulp clean & webpack",
+    "dist:serve": "gulp clean & webpack & cd public & http-server -p 3000"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "babel": "^6.5.2",
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
     "browser-sync": "^2.16.0",
     "browser-sync-webpack-plugin": "^1.1.2",
     "css-loader": "^0.25.0",
@@ -24,6 +26,7 @@
     "handlebars-loader": "^1.4.0",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.22.0",
+    "http-server": "^0.9.0",
     "node-sass": "^3.10.0",
     "postcss-loader": "^0.13.0",
     "precss": "^1.4.0",
